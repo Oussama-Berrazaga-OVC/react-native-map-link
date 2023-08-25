@@ -154,6 +154,7 @@ export function askAppChoice({
     }
 
     const options = availableApps.map((app) => ({
+      title: app,
       text: appTitles[app],
       onPress: () => resolve(app),
     }));
