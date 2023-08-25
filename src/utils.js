@@ -157,7 +157,8 @@ export function askAppChoice({
       text: appTitles[app],
       onPress: () => resolve(app),
     }));
-    options.unshift({
+    return resolve(options)
+    /*options.unshift({
       text: cancelText,
       onPress: () => resolve(null),
       style: 'cancel',
@@ -166,7 +167,7 @@ export function askAppChoice({
     return Alert.alert(dialogTitle, dialogMessage, options, {
       cancelable: true,
       onDismiss: () => resolve(null),
-    });
+    });*/
   });
 }
 
