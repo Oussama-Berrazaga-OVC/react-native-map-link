@@ -310,13 +310,15 @@ export async function showLocation(options) {
   if (url) {
     return Linking.openURL(url).then(() => Promise.resolve(app));
   }
+
+  return app;
 }
 
 export async function getApps(options) {
   let apps = await getAvailableApps(generatePrefixes(options));
   if ('appsWhiteList' in options && options.appsWhiteList.length) {
     checkNotSupportedApps(options.appsWhiteList);
-    apps = apps.filter((appName) => options.appsWhiteList.includes(appName));
+    apps = apps.filter(appName => options.appsWhiteList.includes(appName));
   }
 
   const titles = generateTitles(options.appTitles);
